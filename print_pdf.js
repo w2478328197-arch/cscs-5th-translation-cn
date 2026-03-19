@@ -11,7 +11,10 @@ const { PDFDocument, PDFName, PDFDict, PDFArray, PDFNumber, PDFString, PDFHexStr
     const page = await browser.newPage();
     page.setDefaultNavigationTimeout(300000); 
     
-    const htmlPath = 'file://' + path.join(__dirname, 'full_book.html');
+    const inputHtmlPath = process.env.CSCS_OUTPUT_HTML
+        ? path.resolve(process.env.CSCS_OUTPUT_HTML)
+        : path.join(__dirname, 'full_book.html');
+    const htmlPath = 'file://' + inputHtmlPath;
     console.log('Loading full book HTML...');
     
     await page.goto(htmlPath, { waitUntil: 'load' });
@@ -21,7 +24,9 @@ const { PDFDocument, PDFName, PDFDict, PDFArray, PDFNumber, PDFString, PDFHexStr
     
     const outputDir = path.join(__dirname, 'output');
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
-    const finalPdfPath = path.join(outputDir, 'CSCS_V23_FIXED.pdf');
+    const finalPdfPath = process.env.CSCS_OUTPUT_PDF
+        ? path.resolve(process.env.CSCS_OUTPUT_PDF)
+        : path.join(outputDir, 'CSCS_V23_FIXED.pdf');
 
     console.log('Step 1: Printing high-fidelity PDF with all images...');
     // 我们直接打印到最终路径，确保图片先出来

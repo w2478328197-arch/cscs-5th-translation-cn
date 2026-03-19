@@ -4,8 +4,11 @@
   "description": "CSCS 第五版全书翻译与排版工程",
   "main": "render_master.js",
   "scripts": {
-    "render": "node render_master.js && node print_pdf.js",
-    "audit": "python3 tools/auditor.py translated/CSCS_MASTER_V24_RAW.md 1 330"
+    "pipeline": "python3 tools/pipeline.py --action all",
+    "render": "python3 tools/pipeline.py --action render",
+    "assemble": "python3 tools/pipeline.py --action assemble",
+    "audit": "python3 tools/pipeline.py --action audit",
+    "smoke": "python3 tools/pipeline.py --action smoke"
   },
   "dependencies": {
     "cheerio": "^1.2.0",

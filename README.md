@@ -17,15 +17,35 @@
    ```bash
    npm install
    ```
-3. **生成最新的 PDF**:
-   ```bash
-   npm run render
-   ```
+3. **统一流水线（推荐）**:
+   - 全流程（合并 + 审计 + 渲染 + 打印）:
+     ```bash
+     npm run pipeline
+     ```
+   - 仅快速冒烟（小样本）:
+     ```bash
+     npm run smoke
+     ```
 4. **继续翻译新章节**:
    - 从 `source_full/` 拷贝对应页码的 txt。
    - 翻译并存入 `translated/`。
-   - 在 `render_master.js` 中追加文件名。
-   - 再次运行 `npm run render`。
+   - 在 `manifest.json` 中维护章节顺序。
+   - 再次运行 `npm run pipeline`。
+
+## 新配置入口
+- 统一配置文件: `config/pipeline.json`
+- 通用模板配置: `config/pipeline.template.json`
+- 可配置项:
+  - 输入 manifest
+  - 合稿输出路径
+  - PDF 输出路径
+  - smoke 样本 manifest
+
+## 复用到新项目（技术模板）
+1. 拷贝本仓库骨架到新目录。
+2. 复制 `config/pipeline.template.json` 为新项目的 `config/pipeline.json`。
+3. 准备 `translated/`、`images/`、`manifest.json`、`manifest_smoke.json`。
+4. 先运行 `npm run smoke` 验链路，再运行 `npm run pipeline`。
 
 ## 注意事项
 - **公式**: 采用服务器端 KaTeX 预渲染，严禁在正文中改动 `$ ... $` 内部内容。
