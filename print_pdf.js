@@ -11,8 +11,8 @@ const { PDFDocument, PDFName, PDFDict, PDFArray, PDFNumber, PDFString, PDFHexStr
     const page = await browser.newPage();
     page.setDefaultNavigationTimeout(300000); 
     
-    const inputHtmlPath = process.env.CSCS_OUTPUT_HTML
-        ? path.resolve(process.env.CSCS_OUTPUT_HTML)
+    const inputHtmlPath = process.env.BOOK_OUTPUT_HTML
+        ? path.resolve(process.env.BOOK_OUTPUT_HTML)
         : path.join(__dirname, 'full_book.html');
     const htmlPath = 'file://' + inputHtmlPath;
     console.log('Loading full book HTML...');
@@ -24,9 +24,9 @@ const { PDFDocument, PDFName, PDFDict, PDFArray, PDFNumber, PDFString, PDFHexStr
     
     const outputDir = path.join(__dirname, 'output');
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
-    const finalPdfPath = process.env.CSCS_OUTPUT_PDF
-        ? path.resolve(process.env.CSCS_OUTPUT_PDF)
-        : path.join(outputDir, 'CSCS_V23_FIXED.pdf');
+    const finalPdfPath = process.env.BOOK_OUTPUT_PDF
+        ? path.resolve(process.env.BOOK_OUTPUT_PDF)
+        : path.join(outputDir, 'BOOK_FINAL.pdf');
 
     console.log('Step 1: Printing high-fidelity PDF with all images...');
     // 我们直接打印到最终路径，确保图片先出来
@@ -35,7 +35,7 @@ const { PDFDocument, PDFName, PDFDict, PDFArray, PDFNumber, PDFString, PDFHexStr
         format: 'A4',
         printBackground: true,
         displayHeaderFooter: true,
-        headerTemplate: '<div style="font-size: 8px; width: 100%; text-align: center; color: #ccc;">CSCS 第五版 - 中文重译修复版</div>',
+        headerTemplate: '<div style="font-size: 8px; width: 100%; text-align: center; color: #ccc;">书名 - 翻译版</div>',
         footerTemplate: '<div style="font-size: 8px; width: 100%; text-align: center; color: #ccc;"><span class="pageNumber"></span> / <span class="totalPages"></span></div>',
         margin: { top: '60px', bottom: '60px', left: '40px', right: '40px' },
         timeout: 0

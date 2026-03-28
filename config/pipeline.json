@@ -4,9 +4,9 @@
     "translated_dir": "translated",
     "images_dir": "images",
     "manifest": "manifest.json",
-    "assembled_markdown": "translated/CSCS_MASTER_PIPELINE.md",
+    "assembled_markdown": "translated/BOOK_MASTER_PIPELINE.md",
     "html_output": "full_book.html",
-    "pdf_output": "output/CSCS_PIPELINE.pdf"
+    "pdf_output": "output/BOOK_PIPELINE.pdf"
   },
   "audit": {
     "required_headings": [
@@ -16,7 +16,7 @@
   },
   "smoke": {
     "sample_manifest": "manifest_smoke.json",
-    "assembled_markdown": "translated/CSCS_SMOKE.md",
-    "pdf_output": "output/CSCS_SMOKE.pdf"
+    "assembled_markdown": "translated/BOOK_SMOKE.md",
+    "pdf_output": "output/BOOK_SMOKE.pdf"
   }
 }

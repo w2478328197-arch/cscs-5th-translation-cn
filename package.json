@@ -1,7 +1,7 @@
 {
-  "name": "cscs-translation-project",
+  "name": "academic-translation-pipeline",
   "version": "1.0.0",
-  "description": "CSCS 第五版全书翻译与排版工程",
+  "description": "Automated pipeline for translating and typesetting academic books",
   "main": "render_master.js",
   "scripts": {
     "pipeline": "python3 tools/pipeline.py --action all",

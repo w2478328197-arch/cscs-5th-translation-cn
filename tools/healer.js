@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const projectRoot = __dirname;
-const masterPath = path.join(projectRoot, 'translated', 'CSCS_Master_Integrated.md');
+const masterPath = path.join(projectRoot, 'translated', 'BOOK_Master_Integrated.md');
 
 function healMarkdown(pageMap) {
     let md = fs.readFileSync(masterPath, 'utf8');

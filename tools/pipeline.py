@@ -138,9 +138,9 @@ def audit_markdown(
 
 def run_node_render(project_root: Path, input_md: Path, output_html: Path, output_pdf: Path) -> None:
     env = os.environ.copy()
-    env["CSCS_INPUT_MD"] = str(input_md)
-    env["CSCS_OUTPUT_HTML"] = str(output_html)
-    env["CSCS_OUTPUT_PDF"] = str(output_pdf)
+    env["BOOK_INPUT_MD"] = str(input_md)
+    env["BOOK_OUTPUT_HTML"] = str(output_html)
+    env["BOOK_OUTPUT_PDF"] = str(output_pdf)
 
     subprocess.run(["node", "render_master.js"], cwd=project_root, env=env, check=True)
     subprocess.run(["node", "print_pdf.js"], cwd=project_root, env=env, check=True)
@@ -176,8 +176,8 @@ def main() -> int:
     if args.action == "smoke":
         smoke_cfg = cfg.get("smoke", {})
         smoke_manifest = resolve(project_root, smoke_cfg.get("sample_manifest", "manifest_v2.json"))
-        smoke_md = resolve(project_root, smoke_cfg.get("assembled_markdown", "translated/CSCS_SMOKE.md"))
-        smoke_pdf = resolve(project_root, smoke_cfg.get("pdf_output", "output/CSCS_SMOKE.pdf"))
+        smoke_md = resolve(project_root, smoke_cfg.get("assembled_markdown", "translated/BOOK_SMOKE.md"))
+        smoke_pdf = resolve(project_root, smoke_cfg.get("pdf_output", "output/BOOK_SMOKE.pdf"))
         smoke_html = output_html
 
         smoke_manifest_files = read_manifest(smoke_manifest)

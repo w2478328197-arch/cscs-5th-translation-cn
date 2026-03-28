@@ -2,10 +2,10 @@
 import os
 import re
 
-project_root = os.path.expanduser("~/Desktop/CSCS_中文翻译工程")
+project_root = os.path.expanduser("~/Desktop/Book_Translation_Project")
 translated_dir = os.path.join(project_root, "translated")
 images_dir = os.path.join(project_root, "images")
-output_master = os.path.join(translated_dir, "CSCS_Master_Fresh_Final.md")
+output_master = os.path.join(translated_dir, "BOOK_Master_Final.md")
 
 # 获取翻译文件列表并按页码排序
 # 之前我们是 Cat 出来的，现在我们按原始章节小块读取

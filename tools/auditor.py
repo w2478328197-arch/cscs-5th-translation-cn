@@ -11,7 +11,7 @@ def audit_translation(md_path, start_page, end_page):
     with open(md_path, 'r', encoding='utf-8') as f:
         md_content = f.read()
     
-    pdf_path = os.path.expanduser('~/Desktop/cscs 第五版/Essenti..ng.pdf')
+    pdf_path = os.path.expanduser('~/Desktop/Book_Project/Original_Book.pdf')
     doc = fitz.open(pdf_path)
     report = []
 

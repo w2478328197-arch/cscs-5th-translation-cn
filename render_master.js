@@ -6,12 +6,12 @@ const katex = require('katex');
 const cheerio = require('cheerio');
 
 const projectRoot = __dirname;
-const mdPath = process.env.CSCS_INPUT_MD
-    ? path.resolve(process.env.CSCS_INPUT_MD)
-    : path.join(projectRoot, 'translated', 'CSCS_MASTER_FINAL_CLEAN.md');
+const mdPath = process.env.BOOK_INPUT_MD
+    ? path.resolve(process.env.BOOK_INPUT_MD)
+    : path.join(projectRoot, 'translated', 'BOOK_MASTER_FINAL.md');
 const imagesDir = path.join(projectRoot, 'images'); // 绝对路径
-const htmlOutputPath = process.env.CSCS_OUTPUT_HTML
-    ? path.resolve(process.env.CSCS_OUTPUT_HTML)
+const htmlOutputPath = process.env.BOOK_OUTPUT_HTML
+    ? path.resolve(process.env.BOOK_OUTPUT_HTML)
     : path.join(projectRoot, 'full_book.html');
 
 let markdown = fs.readFileSync(mdPath, 'utf8');

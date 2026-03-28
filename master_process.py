@@ -2,7 +2,7 @@ import os
 import time
 
 # 定义工程路径
-BASE_DIR = os.path.expanduser("~/Desktop/CSCS_中文翻译工程")
+BASE_DIR = os.path.expanduser("~/Desktop/Book_Translation_Project")
 SOURCE_DIR = os.path.join(BASE_DIR, "source")
 TRANS_DIR = os.path.join(BASE_DIR, "translated")
 OUTPUT_DIR = os.path.join(BASE_DIR, "output_chapters")
@@ -24,5 +24,5 @@ def run_batch(start_page, end_page):
     log_progress(f"第 {start_page}-{end_page} 页处理完成。")
 
 if __name__ == "__main__":
-    log_progress("🚀 CSCS 全书翻译工程正式启动！")
+    log_progress("🚀 全书翻译工程正式启动！")
     # 这里我们分批次跑，目前先定义好结构
